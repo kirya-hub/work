@@ -12,29 +12,50 @@ source venv/bin/activate
 ## Зависимости среды:
 
 #### Production:
+
+```bash
 pip install -r requirements/prod.txt
+```
 
 #### Development:
+
+```bash
 pip install -r requirements/dev.txt
+```
 
 #### Testing:
-pip install -r requirements/test.txt
 
+```bash
+pip install -r requirements/test.txt
+```
 
 ## Запуск сервера:
+
+```bash
 python manage.py runserver
+```
 
 
 ## Настройка переменных окружения:
 
 **Создать файл .env в корне проекта:**
+
+```bash
 touch .env
+```
+
 
 **Заполнить его своими данными:**
+
+```bash
 SECRET_KEY=your-secret-key
+
 DEBUG=True
+
 DATABASE_URL=sqlite:///db.sqlite3
+
 ALLOWED_HOSTS=example.com,localhost,127.0.0.1
+```
 
 
 ## Запуск в dev-режиме:
