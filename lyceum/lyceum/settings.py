@@ -49,6 +49,9 @@ INSTALLED_APPS = [
     "about.apps.AboutConfig",
 ]
 
+if DEBUG:
+    INSTALLED_APPS.append('debug_toolbar')
+
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -58,6 +61,11 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
+if DEBUG:
+    MIDDLEWARE.append('debug_toolbar.middleware.DebugToolbarMiddleware')
+
+INTERNAL_IPS = os.getenv('DJANGO_INTERNAL_IPS', '127.0.0.1').split(',')
 
 ROOT_URLCONF = "lyceum.urls"
 

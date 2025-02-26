@@ -2,6 +2,7 @@ image: python:3.11
 
 stages:
   - lint  
+  - test
 
 flake8:
   stage: lint  
@@ -9,3 +10,11 @@ flake8:
   script:
     - pip install pep8-naming  
     - flake8 --verbose  
+
+test: 
+  stage: test
+  script:
+  - pip3 install -r requirements/prod.txt
+  - pip3 install -r requirements/test.txt
+  - cd lyceum
+  - python3 manage.py test
