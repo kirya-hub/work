@@ -2,3 +2,4 @@
 application-import-names = about,catalog,homepage
 exclude = .git,__pycache__,venv
 import-order-style = google
+inline-quotes = double
