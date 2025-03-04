@@ -1,4 +1,4 @@
-import django.conf
+from django.conf import settings
 import django.contrib.admin
 import django.urls
 
@@ -6,8 +6,7 @@ import about.urls
 import catalog.urls
 import homepage.urls
 
-from django.conf import settings
-from django.urls import path, include
+from django.urls import include, path
 
 
 urlpatterns = [
