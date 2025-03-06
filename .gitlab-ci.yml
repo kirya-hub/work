@@ -11,10 +11,11 @@ flake8:
     - pip install pep8-naming  
     - flake8 --verbose  
 
-test: 
+test:
   stage: test
   script:
   - pip3 install -r requirements/prod.txt
   - pip3 install -r requirements/test.txt
+  - export DJANGO_SETTINGS_MODULE=lyceum.settings
   - cd lyceum
   - python3 manage.py test

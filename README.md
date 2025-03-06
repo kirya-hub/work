@@ -48,13 +48,13 @@ touch .env
 **Заполнить его своими данными:**
 
 ```bash
-SECRET_KEY=your-secret-key
+DJANGO_SECRET_KEY=your-secret-key
 
-DEBUG=True
+DJANGO_DEBUG=True
 
 DATABASE_URL=sqlite:///db.sqlite3
 
-ALLOWED_HOSTS=example.com,localhost,127.0.0.1
+DJANGO_ALLOWED_HOSTS=example.com,localhost,127.0.0.1
 ```
 
 
