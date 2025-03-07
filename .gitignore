@@ -5,7 +5,5 @@ db.sqlite3
 *.sqlite3
 admin.py
 models.py
-tests.py
-views.py
 .vscode
 .idea
