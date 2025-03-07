@@ -4,6 +4,13 @@ import os
 import sys
 
 
+from dotenv import load_dotenv
+
+
+load_dotenv()
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "lyceum.settings")
+
+
 def main():
     """Run administrative tasks."""
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "lyceum.settings")
