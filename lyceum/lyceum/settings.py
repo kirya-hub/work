@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "homepage.apps.HomepageConfig",
     "catalog.apps.CatalogConfig",
     "about.apps.AboutConfig",
+    "core.apps.CoreConfig",
 ]
 
 if DEBUG:
@@ -115,7 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/dev/topics/i18n/
 
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "ru"
 
 TIME_ZONE = "UTC"
 

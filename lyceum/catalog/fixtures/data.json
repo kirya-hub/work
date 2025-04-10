@@ -1,0 +1,98 @@
+[
+{
+  "model": "catalog.item",
+  "pk": 1,
+  "fields": {
+    "name": "тестовая мобила",
+    "is_published": true,
+    "text": "раскошно",
+    "category": 1,
+    "tags": [
+      1
+    ]
+  }
+},
+{
+  "model": "catalog.item",
+  "pk": 2,
+  "fields": {
+    "name": "товар 1",
+    "is_published": true,
+    "text": "превосходно",
+    "category": 2,
+    "tags": [
+      2
+    ]
+  }
+},
+{
+  "model": "catalog.item",
+  "pk": 3,
+  "fields": {
+    "name": "товар 2",
+    "is_published": true,
+    "text": "превосходно",
+    "category": 3,
+    "tags": [
+      3
+    ]
+  }
+},
+{
+  "model": "catalog.tag",
+  "pk": 1,
+  "fields": {
+    "name": "тесттег",
+    "is_published": true,
+    "slug": "sltest"
+  }
+},
+{
+  "model": "catalog.tag",
+  "pk": 2,
+  "fields": {
+    "name": "тег 1",
+    "is_published": true,
+    "slug": "sltest1"
+  }
+},
+{
+  "model": "catalog.tag",
+  "pk": 3,
+  "fields": {
+    "name": "тег 2",
+    "is_published": true,
+    "slug": "sltest2"
+  }
+},
+{
+  "model": "catalog.category",
+  "pk": 1,
+  "fields": {
+    "name": "тестовый товар",
+    "is_published": true,
+    "slug": "sltest",
+    "weight": 100
+  }
+},
+{
+  "model": "catalog.category",
+  "pk": 2,
+  "fields": {
+    "name": "категория 1",
+    "is_published": true,
+    "slug": "sltest1",
+    "weight": 100
+  }
+},
+{
+  "model": "catalog.category",
+  "pk": 3,
+  "fields": {
+    "name": "категория 2",
+    "is_published": true,
+    "slug": "sltest2",
+    "weight": 100
+  }
+}
+]
