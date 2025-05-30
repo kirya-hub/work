@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Список товаров{% endblock %}
+
+{% block content %}
+<h1>Список товаров</h1>
+<div class="row">
+  <div class="col-md-4">
+    <div class="card">
+      <img src="{% static 'img/cat_or_raccoon.jpg' %}" class="card-img-top" alt="Товар">
+      <div class="card-body">
+        <h5 class="card-title">Товар #1</h5>
+        <p class="card-text">Описание товара #1.</p>
+        <a href="/catalog/item/" class="btn btn-primary">Подробнее</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
