@@ -1,11 +1,27 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Товар{% endblock %}
+{% block title %}{{ item.name }}{% endblock %}
 
 {% block content %}
-<h1>Товар #1</h1>
-<img src="{% static 'img/cat_or_raccoon.jpg' %}" class="img-fluid rounded mb-3" alt="Товар">
-<p>Подробное описание товара. Здесь может быть что угодно.</p>
-<a href="/catalog/" class="btn btn-secondary">Назад к списку</a>
+<h1 class="text-primary mb-4">{{ item.name }}</h1>
+
+{% if item.main_image %}
+  <img src="{{ item.main_image.url }}" class="img-fluid rounded mb-3" alt="{{ item.name }}">
+{% else %}
+  <img src="{% static 'images/photo.png' %}" class="img-fluid rounded mb-3" alt="Картинка по умолчанию">
+{% endif %}
+
+<p>{{ item.text }}</p>
+
+{% if item.images.all %}
+  <h5 class="mt-4">Дополнительные изображения:</h5>
+  <div class="d-flex flex-wrap gap-3">
+    {% for image in item.images.all %}
+      <img src="{{ image.image.url }}" width="150" height="150" style="object-fit: cover;" alt="Фото">
+    {% endfor %}
+  </div>
+{% endif %}
+
+<a href="{% url 'catalog:item_list' %}" class="btn btn-secondary mt-4">Назад к списку</a>
 {% endblock %}

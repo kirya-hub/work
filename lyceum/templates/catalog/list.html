@@ -4,17 +4,13 @@
 {% block title %}Список товаров{% endblock %}
 
 {% block content %}
-<h1>Список товаров</h1>
-<div class="row">
-  <div class="col-md-4">
-    <div class="card">
-      <img src="{% static 'img/cat_or_raccoon.jpg' %}" class="card-img-top" alt="Товар">
-      <div class="card-body">
-        <h5 class="card-title">Товар #1</h5>
-        <p class="card-text">Описание товара #1.</p>
-        <a href="/catalog/item/" class="btn btn-primary">Подробнее</a>
-      </div>
+<h1 class="mb-4 text-primary">Все товары</h1>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  {% for item in items %}
+    <div class="col">
+      {% include 'includes/item_card.html' %}
     </div>
-  </div>
+  {% endfor %}
 </div>
 {% endblock %}

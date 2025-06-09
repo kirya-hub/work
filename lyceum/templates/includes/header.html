@@ -1,15 +1,20 @@
 {% load static %}
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/">
-        <img src="{% static 'images/logo.png' %}" alt="Logo" width="45">
-      </a>
-      <div>
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-row gap-3">
-          <li class="nav-item"><a class="nav-link" href="/">На главную</a></li>
-          <li class="nav-item"><a class="nav-link" href="/about/">О проекте</a></li>
-          <li class="nav-item"><a class="nav-link" href="/catalog/">Список товаров</a></li>
-        </ul>
-      </div>
-    </div>
+  <div class="container">
+    <a class="navbar-brand" href="{% url 'homepage:home' %}">
+      <img src="{% static 'images/logo.png' %}" alt="Logo" width="50">
+    </a>
+    <ul class="navbar-nav ms-auto">
+      <li class="nav-item">
+        <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{% url 'homepage:home' %}">На главную</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {% if request.path == '/about/' %}active{% endif %}" href="{% url 'about:description' %}">О проекте</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {% if '/catalog/' in request.path %}active{% endif %}" href="{% url 'catalog:item_list' %}">Список товаров</a>
+      </li>
+    </ul>
+  </div>
 </nav>

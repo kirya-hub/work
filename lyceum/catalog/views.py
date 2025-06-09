@@ -1,14 +1,13 @@
 import django.http
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from .models import Item
 
 
 def item_list(request):
-    return django.http.HttpResponse("Список элементов")
+    items = Item.objects.filter(is_published=True)
+    return render(request, 'catalog/list.html', {'items': items})
 
 
 def item_detail(request, pk):
-    return django.http.HttpResponse(f"Подробно элемент {pk}")
-
-def item_detail(request, item_id):
-    return render(request, 'catalog/detail.html', {'item_id': item_id})
-
+    item = get_object_or_404(Item, pk=pk)
+    return render(request, 'catalog/detail.html', {'item': item})
