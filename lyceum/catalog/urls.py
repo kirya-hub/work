@@ -1,10 +1,9 @@
-import django.urls
+from django.urls import path
+from catalog import views
 
-import catalog.views
-
+app_name = 'catalog'
 
 urlpatterns = [
-    django.urls.path("", catalog.views.item_list),
-    django.urls.path("<int:pk>/", catalog.views.item_detail),
-    #django.urls.path('item/<int:item_id>/', catalog.views.item_detail, name='item_detail'),
+    path('', views.item_list, name='item_list'),
+    path('<int:pk>/', views.item_detail, name='item_detail'),
 ]

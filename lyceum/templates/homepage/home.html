@@ -1,9 +1,13 @@
 {% extends 'base.html' %}
-{% load static %}
-
-{% block title %}лан, главная{% endblock %}
 
 {% block content %}
-<h1 class="text-primary">Проверка главной страницы</h1>
-<img src="{% static 'images/photo.png' %}" class="img-fluid" alt="Картинка">
+<h1 class="mb-4 text-primary">Проверка главной страницы</h1>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  {% for item in items %}
+    <div class="col">
+      {% include 'includes/item_card.html' %}
+    </div>
+  {% endfor %}
+</div>
 {% endblock %}
