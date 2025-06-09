@@ -25,12 +25,39 @@ class Item(core.models.PublishedWithNameBaseModel):
         verbose_name="теги"
     )
 
+    main_image = django.db.models.ImageField(
+        upload_to="main_images/",
+        null=True,
+        blank=True,
+        verbose_name="главное изображение"
+    )
+
     class Meta:
         verbose_name = "товар"
         verbose_name_plural = "товары"
 
     def __str__(self):
         return self.name
+    
+
+class ItemImage(django.db.models.Model):
+    item = django.db.models.ForeignKey(
+        Item,
+        on_delete=django.db.models.CASCADE,
+        related_name="images",
+        verbose_name="товар"
+    )
+    image = django.db.models.ImageField(
+        upload_to="item_images/",
+        verbose_name="изображение"
+    )
+
+    class Meta:
+        verbose_name = "изображение товара"
+        verbose_name_plural = "галерея товара"
+
+    def __str__(self):
+        return f"Изображение для {self.item.name}"
 
 
 class Tag(core.models.PublishedWithNameBaseModel):

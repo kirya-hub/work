@@ -1,8 +1,14 @@
+{% load static %}
+
 <div class="card h-100">
-  <img src="{{ item.image_url }}" class="card-img-top" alt="{{ item.name }}">
+  {% if item.main_image %}
+    <img src="{{ item.main_image.url }}" class="card-img-top" alt="{{ item.name }}">
+  {% else %}
+    <img src="{% static 'images/photo.png' %}" class="card-img-top" alt="Заглушка">
+  {% endif %}
   <div class="card-body">
     <h5 class="card-title">{{ item.name }}</h5>
-    <p class="card-text">{{ item.description }}</p>
-    <a href="{% url 'catalog:item_detail' item.id %}" class="btn btn-primary">Подробнее</a>
+    <p class="card-text">{{ item.text|truncatechars:100 }}</p>
+    <a href="{% url 'catalog:item_detail' item.pk %}" class="btn btn-primary">Подробнее</a>
   </div>
 </div>

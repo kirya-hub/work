@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     "catalog.apps.CatalogConfig",
     "about.apps.AboutConfig",
     "core.apps.CoreConfig",
+    "sorl.thumbnail",
+    "django_cleanup.apps.CleanupConfig",
 ]
 
 if DEBUG:
@@ -129,8 +131,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 
 STATIC_URL = "static/"
-
-STATICFILES_DIRS = [BASE_DIR / "static_dev"]
 
 MEDIA_ROOT = BASE_DIR / "media"
 MEDIA_URL = "media/"
