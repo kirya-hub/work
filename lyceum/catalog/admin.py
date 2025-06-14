@@ -14,7 +14,7 @@ class ItemImageInline(django.contrib.admin.TabularInline):
 class ItemAdmin(django.contrib.admin.ModelAdmin):
     list_display = (
         catalog.models.Item.name.field.name,
-        'main_image_preview',  # добавим превью
+        'main_image_preview',
         catalog.models.Item.is_published.field.name,
     )
     list_editable = (catalog.models.Item.is_published.field.name,)

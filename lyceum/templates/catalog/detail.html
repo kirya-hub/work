@@ -18,7 +18,7 @@
   <h5 class="mt-4">Дополнительные изображения:</h5>
   <div class="d-flex flex-wrap gap-3">
     {% for image in item.images.all %}
-      <img src="{{ image.image.url }}" width="150" height="150" style="object-fit: cover;" alt="Фото">
+      <img src="{{ image.image.url }}" width="250" height="250" style="object-fit: cover;" alt="Фото">
     {% endfor %}
   </div>
 {% endif %}
