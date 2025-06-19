@@ -10,7 +10,7 @@ def main_page(request):
         .only("name", "text", "category__name")
         .order_by("category__name", "name")
     )
-    return render(request, 'catalog/list.html', {'items': items})
+    return render(request, 'catalog/main.html', {'items': items})
 
 
 def item_list(request):
