@@ -32,6 +32,12 @@ class Item(core.models.PublishedWithNameBaseModel):
         verbose_name="главное изображение"
     )
 
+    is_on_main = django.db.models.BooleanField(
+        default=False, 
+        verbose_name="Показывать на главной"
+    )
+
+
     class Meta:
         verbose_name = "товар"
         verbose_name_plural = "товары"
