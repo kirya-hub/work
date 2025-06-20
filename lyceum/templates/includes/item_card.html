@@ -8,7 +8,13 @@
   {% endif %}
   <div class="card-body">
     <h5 class="card-title">{{ item.name }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{ item.category.name }}</h6>
     <p class="card-text">{{ item.text|truncatewords:10 }}</p>
+    <p>
+      {% for tag in item.tags.all %}
+        <span class="badge bg-secondary">{{ tag.name }}</span>
+      {% endfor %}
+    </p>
     <a href="{% url 'catalog:item_detail' item.pk %}" class="btn btn-primary">Подробнее</a>
   </div>
 </div>
