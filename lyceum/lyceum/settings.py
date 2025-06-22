@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     "core.apps.CoreConfig",
     "sorl.thumbnail",
     "django_cleanup.apps.CleanupConfig",
+    "feedback.apps.FeedbackConfig"
 ]
 
 if DEBUG:
@@ -140,3 +141,7 @@ MEDIA_URL = "/media/"
 # https://docs.djangoproject.com/en/dev/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+DJANGO_MAIL = os.getenv('DJANGO_MAIL')
+EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+EMAIL_FILE_PATH = BASE_DIR / 'send_mail'
