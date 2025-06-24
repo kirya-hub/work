@@ -11,7 +11,6 @@ def feedback(request):
     if request.method == 'POST' and form.is_valid():
         feedback_obj = form.save()
 
-        # Отправляем письмо
         send_mail(
             subject='Обратная связь от пользователя',
             message=feedback_obj.text,
@@ -23,7 +22,6 @@ def feedback(request):
         success = True
         return redirect(f"{request.path}?success=true")
 
-    # Отображение страницы с формой
     return render(request, 'feedback/feedback.html', {
         'form': form,
         'success': request.GET.get('success') == 'true'
