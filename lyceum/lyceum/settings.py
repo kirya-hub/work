@@ -49,7 +49,8 @@ INSTALLED_APPS = [
     "core.apps.CoreConfig",
     "sorl.thumbnail",
     "django_cleanup.apps.CleanupConfig",
-    "feedback.apps.FeedbackConfig"
+    "feedback.apps.FeedbackConfig",
+    "users.apps.UsersConfig"
 ]
 
 if DEBUG:
@@ -145,3 +146,5 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 DJANGO_MAIL = os.getenv('DJANGO_MAIL')
 EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 EMAIL_FILE_PATH = BASE_DIR / 'send_mail'
+DEFAULT_USER_IS_ACTIVE = os.getenv("DJANGO_DEFAULT_USER_IS_ACTIVE", "True") == "True"
+DEFAULT_FROM_EMAIL = "noreply@example.com"

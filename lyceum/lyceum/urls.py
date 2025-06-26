@@ -11,6 +11,7 @@ urlpatterns = [
     path("catalog/", include("catalog.urls")),
     path("admin/", admin.site.urls),
     path('feedback/', include('feedback.urls', namespace='feedback')),
+    path('users/', include('users.urls')),
 ]
 
 if settings.DEBUG:
