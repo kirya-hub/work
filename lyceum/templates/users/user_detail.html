@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Профиль пользователя {{ user_obj.username }}</h2>
+
+  <p>Почта: {{ user_obj.email|default:"<em>не указано</em>" }}</p>
+  <p>Имя: {{ user_obj.first_name|default:"<em>не указано</em>" }}</p>
+  <p>Фамилия: {{ user_obj.last_name|default:"<em>не указано</em>" }}</p>
+
+  {% if user_obj.profile.birthday %}
+    <p>День рождения: {{ user_obj.profile.birthday|date:"d.m.Y" }}</p>
+  {% endif %}
+
+  {% if user_obj.profile.image %}
+    <img src="{{ user_obj.profile.image.url }}" alt="avatar" width="150">
+  {% endif %}
+
+  <p>Попыток сварить кофе: {{ user_obj.profile.coffee_count }}</p>
+{% endblock %}

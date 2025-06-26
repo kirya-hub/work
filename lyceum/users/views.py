@@ -8,6 +8,8 @@ from .forms import SignUpForm
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django.utils.timezone import now
+from django.contrib.auth.decorators import login_required
+from .forms import ProfileForm
 
 
 def signup(request):
@@ -31,8 +33,7 @@ def signup(request):
             return redirect("login")
     else:
         form = SignUpForm()
-    return render(request, "users/signup.html", {"form": form})
-
+    return render(request, "users/registration/signup.html", {"form": form})
 
 
 def activate_user(request, username):
@@ -42,3 +43,25 @@ def activate_user(request, username):
         user.save()
         return HttpResponse("Аккаунт успешно активирован!")
     return HttpResponse("Ссылка недействительна или пользователь уже активирован.")
+
+
+def user_list(request):
+    users = User.objects.filter(is_active=True).select_related("profile")
+    return render(request, "users/user_list.html", {"users": users})
+
+
+def user_detail(request, pk):
+    user_obj = get_object_or_404(User, pk=pk)
+    return render(request, "users/user_detail.html", {"user_obj": user_obj})
+
+
+@login_required
+def profile(request):
+    profile = request.user.profile
+    if request.method == "POST":
+        form = ProfileForm(request.POST, request.FILES, instance=profile)
+        if form.is_valid():
+            form.save()
+    else:
+        form = ProfileForm(instance=profile)
+    return render(request, "users/profile.html", {"form": form})

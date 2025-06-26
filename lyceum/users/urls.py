@@ -15,7 +15,7 @@ urlpatterns = [
     path('signup/', signup, name='signup'),
     path('activate/<str:username>', activate_user, name='activate_user'),
 
-    path('users/', user_list, name='user_list'),
-    path('users/<int:pk>/', user_detail, name='user_detail'),
+    path('', user_list, name='user_list'),
+    path('<int:pk>/', user_detail, name='user_detail'),
     path('profile/', profile, name='profile'),
 ]
