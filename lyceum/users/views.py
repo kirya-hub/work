@@ -10,7 +10,8 @@ from django.shortcuts import get_object_or_404
 from django.utils.timezone import now
 from django.contrib.auth.decorators import login_required
 from .forms import ProfileForm
-
+from django.contrib.auth.views import LoginView
+from django.urls import reverse_lazy
 
 def signup(request):
     if request.method == "POST":
@@ -65,3 +66,12 @@ def profile(request):
     else:
         form = ProfileForm(instance=profile)
     return render(request, "users/profile.html", {"form": form})
+
+
+class CustomLoginView(LoginView):
+    template_name = "registration/login.html"
+    redirect_authenticated_user = True
+    success_url = reverse_lazy("profile")
+
+    def get_success_url(self):
+        return self.success_url

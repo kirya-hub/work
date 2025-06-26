@@ -148,3 +148,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 EMAIL_FILE_PATH = BASE_DIR / 'send_mail'
 DEFAULT_USER_IS_ACTIVE = os.getenv("DJANGO_DEFAULT_USER_IS_ACTIVE", "True") == "True"
 DEFAULT_FROM_EMAIL = "noreply@example.com"
+LOGIN_REDIRECT_URL = "/users/profile/"
+LOGOUT_REDIRECT_URL = 'main_page'

@@ -18,6 +18,25 @@
       <li class="nav-item">
         <a class="nav-link {% if '/feedback/' in request.path %}active{% endif %}" href="{% url 'feedback:feedback' %}">Обратная связь</a>
       </li>
+
+      {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link {% if '/users/profile/' in request.path %}active{% endif %}" href="{% url 'profile' %}">Профиль</a>
+        </li>
+        <li class="nav-item">
+          <form action="{% url 'logout' %}" method="post" style="display:inline;">
+            {% csrf_token %}
+            <button class="nav-link btn btn-link" type="submit" style="padding: 0; margin-left: 10px;">Выйти</button>
+          </form>
+        </li>
+      {% else %}
+        <li class="nav-item">
+          <a class="nav-link {% if '/users/login/' in request.path %}active{% endif %}" href="{% url 'login' %}">Войти</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if '/users/signup/' in request.path %}active{% endif %}" href="{% url 'signup' %}">Регистрация</a>
+        </li>
+      {% endif %}
     </ul>
   </div>
 </nav>
