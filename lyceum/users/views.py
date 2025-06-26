@@ -33,7 +33,7 @@ def signup(request):
             return redirect("login")
     else:
         form = SignUpForm()
-    return render(request, "users/registration/signup.html", {"form": form})
+    return render(request, "registration/signup.html", {"form": form})
 
 
 def activate_user(request, username):
